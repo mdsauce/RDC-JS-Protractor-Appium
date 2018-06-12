@@ -7,9 +7,7 @@ function writeScreenShot(data, filename) {
 }
 
 describe('Grab initial screenshot of Login page', () => {
-    browser.context('NATIVE_APP').then(() => {
-        browser.takeScreenshot().then(function (png){
-            writeScreenShot(png, 'loginScreenshot.png')
-        })
+    browser.takeScreenshot().then(function (png){
+        writeScreenShot(png, 'loginScreenshot.png')
     })
 })
