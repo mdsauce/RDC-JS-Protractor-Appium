@@ -40,6 +40,11 @@ exports.config = {
     },
     ],
 
+    // configuring wd in onPrepare
+    onPrepare: function () {
+        wdBridge.initFromProtractor(config);
+    },
+
     onComplete: function(result) {
         var myAccount = new TestObject({
             username: 'csteam',
