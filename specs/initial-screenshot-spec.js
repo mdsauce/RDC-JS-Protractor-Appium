@@ -7,6 +7,7 @@ function writeScreenShot(data, filename) {
 }
 
 describe('When my app loads', function () {
+    console.log("Jasmine default timeout", jasmine.DEFAULT_TIMEOUT_INTERVAL)
     console.log("Now trying to take a screenshot")
     it('will take a screenshot of the login', function () {
         console.log("The screenshot is about to start <<<< 5, 4, 3, 2, 1...")
