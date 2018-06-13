@@ -1,5 +1,5 @@
 {
-  "name": "RDC-JS-Protractor-Appium",
+  "name": "rdc-js-protractor-appium",
   "version": "0.0.0",
   "description": "Parallel tests protractor  =============",
   "main": "",
@@ -7,8 +7,9 @@
     "test": "./node_modules/.bin/protractor conf.js"
   },
   "devDependencies": {
-  	"protractor": "latest",
-  	"https-proxy-agent": "latest",
+    "https-proxy-agent": "latest",
+    "jasmine": "^3.1.0",
+    "protractor": "latest",
     "testobject_api": "latest"
   }
 }

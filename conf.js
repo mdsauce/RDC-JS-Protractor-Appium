@@ -4,10 +4,15 @@ exports.config = {
 
     // seleniumAddress: 'http://eu1.appium.testobject.com/wd/hub',
     seleniumAddress: 'http://us1.appium.testobject.com/wd/hub',
-    specs: ['specs/*spec.js'],
+    specs: ['specs/*.js'],
 
     onPrepare: function() {
-        var caps = browser.getCapabilities();
+        var caps = browser.getCapabilities()
+    },
+
+    framework: 'jasmine',
+    jasmineNodeOpts: {
+        defaultTimeoutInterval: 40000
     },
 
     multiCapabilities: [{
@@ -40,17 +45,17 @@ exports.config = {
             username: 'csteam',
             apiKey: process.env.apricot_api,
             password: process.env.RDC_ADMIN_PW
-        });
+        })
 
-        console.log("result is " + result);
+        console.log("result is " + result)
 
         var printSessionId = function(jobName) {
             browser.getSession().then(function(session) {
-                console.log('SauceOnDemandSessionID=' + session.getId() + ' job-name=' + jobName);
+                console.log('SauceOnDemandSessionID=' + session.getId() + ' job-name=' + jobName)
                     myAccount.updateTest(session.getId(), {"passed": result}, function(res){
-                });
-            });
+                })
+            })
         }
-        printSessionId("Screenshot Tests");
+        printSessionId("Screenshot Tests")
     }
 };
