@@ -1,4 +1,4 @@
-var TestObject = require('./node_modules/testobject_api/lib/TestObject');
+var TestObject = require('./node_modules/testobject_api/lib/TestObject')
 
 exports.config = {
 
@@ -8,6 +8,10 @@ exports.config = {
 
     onPrepare: function() {
         var caps = browser.getCapabilities()
+        var wd = require('wd'),
+        protractor = require('protractor'),
+        wdBridge = require('wd-bridge')(protractor, wd);
+        wdBridge.initFromProtractor(exports.config);    
     },
 
     framework: 'jasmine',
@@ -40,11 +44,6 @@ exports.config = {
     },
     ],
 
-    // configuring wd in onPrepare
-    onPrepare: function () {
-        wdBridge.initFromProtractor(config);
-    },
-
     onComplete: function(result) {
         var myAccount = new TestObject({
             username: 'csteam',
@@ -63,4 +62,4 @@ exports.config = {
         }
         printSessionId("Screenshot Tests")
     }
-};
+}

@@ -10,6 +10,8 @@
     "https-proxy-agent": "latest",
     "jasmine": "^3.1.0",
     "protractor": "latest",
-    "testobject_api": "latest"
+    "testobject_api": "latest",
+    "wd": "^1.9.0",
+    "wd-bridge": "^0.0.2"
   }
 }
