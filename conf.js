@@ -29,7 +29,9 @@ exports.config = {
         maxInstances: 3,
         autoWebview : true,
         autoWebviewTimeout: 12000,
-    }, {
+        appiumVersion: '1.8.0'
+    }, 
+    {
         testobject_api_key: process.env.apricot_api,
         testobject_test_name: Date.now() + " - Testing screenshots",
         testobject_cache_device: "false",
@@ -41,6 +43,7 @@ exports.config = {
         maxInstances: 3,
         autoWebview : true,
         autoWebviewTimeout: 12000,
+        appiumVersion: '1.8.0'
     },
     ],
 
