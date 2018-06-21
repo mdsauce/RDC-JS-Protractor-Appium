@@ -10,6 +10,7 @@
     "https-proxy-agent": "latest",
     "jasmine": "^3.1.0",
     "protractor": "latest",
+    "protractor-jasmine2-screenshot-reporter": "^0.5.0",
     "testobject_api": "latest",
     "wd": "^1.9.0",
     "wd-bridge": "^0.0.2"

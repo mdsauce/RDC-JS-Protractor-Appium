@@ -1,4 +1,10 @@
 var TestObject = require('./node_modules/testobject_api/lib/TestObject')
+var HtmlScreenshotReporter = require('protractor-jasmine2-screenshot-reporter')
+
+var reporter = new HtmlScreenshotReporter({
+    dest: 'target/screenshots',
+    filename: 'my-report.html'
+  })
 
 exports.config = {
 
@@ -6,12 +12,19 @@ exports.config = {
     seleniumAddress: 'http://us1.appium.testobject.com/wd/hub',
     specs: ['specs/*.js'],
 
+    beforeLaunch: function() {
+        return new Promise(function(resolve){
+            reporter.beforeLaunch(resolve);
+          })
+    },
+
     onPrepare: function() {
         var caps = browser.getCapabilities()
         var wd = require('wd'),
         protractor = require('protractor'),
         wdBridge = require('wd-bridge')(protractor, wd);
-        wdBridge.initFromProtractor(exports.config);    
+        wdBridge.initFromProtractor(exports.config),
+        jasmine.getEnv().addReporter(reporter)
     },
 
     framework: 'jasmine',
@@ -61,5 +74,11 @@ exports.config = {
             })
         }
         printSessionId("Screenshot Tests")
-    }
+    },
+
+    afterLaunch: function(exitCode) {
+        return new Promise(function(resolve){
+          reporter.afterLaunch(resolve.bind(this, exitCode));
+        });
+      }
 }
